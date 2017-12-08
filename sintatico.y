@@ -3,98 +3,116 @@
 #include <iostream>
 using namespace std;
 
+#define DEADPOOL_HP_TOTAL 20000
+#define IRON_MAN_HP_TOTAL 20000
+
 extern int yylex();
 extern int yyparse();
 extern FILE *yyin;
 extern int linha;
 
+int deadpoolHP = DEADPOOL_HP_TOTAL;
+int ironManHP = IRON_MAN_HP_TOTAL;
 
 int yyerror(const char *mens);
+
+void espadinha();
+void pontaria();
+void curaAcelerada();
+void mestreDasArmas();
+void velocidade();
+void armaDeFotons();
+void raioDeEnergia();
+void visaoTermal();
+void magnetismo();
+void invisibilidade();
+
 %}
 %start battle 
-%token GUERREIRO ATAQUE ESCUDO POCAO
-%token MAGO BOLADEFOGO CANALIZAR CURAR
-%token LADRAO FLECHA ESQUIVA ATADURA 
+%token DEADPOOL ESPADINHA PONTARIA CURA_ACELERADA MESTRE_DAS_ARMAS VELOCIDADE
+%token IRONMAN ARMA_DE_FOTONS RAIO_DE_ENERGIA VISAO_TERMAL MAGNETISMO INVISIBILIDADE
 %token INICIO END_OF_LINE FIM INVALIDO
-%left  GUERREIRO MAGO LADRAO INICIO END_OF_LINE FIM
+%left  DEADPOOL IRONMAN INICIO END_OF_LINE FIM
 %%
-battle    :	INICIO END_OF_LINE jogar END_OF_LINE
+battle    :	INICIO END_OF_LINE turnoDeadpool END_OF_LINE |
+			INICIO END_OF_LINE turnoIronMan END_OF_LINE
 		{
 			exit(0);
 		}
 		;
-jogar	: GUERREIRO comandosGuerreiro END_OF_LINE jogar |
-        
-        MAGO comandosMago END_OF_LINE jogar |
-        
-        LADRAO comandosLadrao END_OF_LINE | fim
-        
-comandosGuerreiro : 
-       		ATAQUE 
+turnoDeadpool	: DEADPOOL comandosDeadpool END_OF_LINE turnoIronMan |
+				  FIM
+        	;
+
+turnoIronMan	: IRON_MAN comandosIronMan END_OF_LINE turnoDeadpool |
+				  FIM
+		;
+
+comandosDeadpool : 
+       		ESPADINHA
 		{
-			printf("GUERREIRO ATAQUE    ");
+			espadinha();
 		} 
 		| 
-		ESCUDO 
+		PONTARIA 
 		{
-			printf("GUERREIRO ESCUDO    ");
+			pontaria();
 		} 
 		|
-		POCAO
+		CURA_ACELERADA
 		{
-			printf("GUERREIRO POCAO     ");
-	        } 
+			curaAcelerada();
+	        }
+		|
+		MESTRE_DAS_ARMAS
+		{
+			mestreDasArmas();
+		}
+		|
+		VELOCIDADE
+		{
+			velocidade();
+		}
 		|INVALIDO
 		{
-			printf("GUERREIRO INVALIDO  ");
+			printf("COMANDO INVALIDO");
 		} 
 		;
-comandosMago  : INVALIDO 
-		{
-			printf("MAGO      INVALIDO  ");
-		} 
-		|
-        	BOLADEFOGO
+comandosIronMan  :
+        	ARMA_DE_FOTONS
         	{
-        		printf("MAGO      BOLADEFOGO");
+        		armaDeFotons();
         	}
 		|
-		CANALIZAR 
+		RAIO_DE_ENERGIA 
 		{
-			printf("MAGO      CANALIZAR ");
+			raioDeEnergia();
 		}
 		|
-		CURAR 
+		VISAO_TERMAL 
 		{
-			printf("MAGO      CURAR     ");
-		} 
-		;
-comandosLadrao :  INVALIDO
-		{
-			printf("LADRAO    INVALIDO  ");
+			visaoTermal();
 		} 
 		|
-	 	FLECHA 
+		MAGNETISMO
 		{
-			printf("LADRAO    FLECHA    ");
+			magnetismo();
 		}
 		|
-		ESQUIVA 
+		INVISIBILIDADE
 		{
-			printf("LADRAO    ESQUIVA   ");
-		}
-                |
-		ATADURA 
+			invisibilidade();
+		}		
+		INVALIDO 
 		{
-			printf("LADRAO    ATADURA   ");
-		}
+			printf("COMANDO INVALIDO");
+		} 					
 		;
-fim: FIM
+FIM: FIM;
 %%
 /* codigo do usuario */
 
-int
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	char arquivoJogador[30];
 	FILE *arquivo;
@@ -121,20 +139,53 @@ main(int argc, char **argv)
 	return(0);
 }
 
-
-
-
-int
-yyerror(const char *mens)
+int yyerror(const char *mens)
 {
 	fprintf(stderr, "Comando da linha %d inválido: %s\n\n", linha, mens);
 	return(1);
 }
 
+void espadinha() {
 
+}
 
-int 
-yywrap(void) {	
+void pontaria() {
+
+}
+
+void curaAcelerada() {
+
+}
+
+void mestreDasArmas() {
+
+}
+
+void velocidade() {
+
+}
+
+void armaDeFotons() {
+
+}
+
+void raioDeEnergia(); {
+
+}
+
+void visaoTermal() {
+
+}
+
+void magnetismo() {
+
+}
+
+void invisibilidade() {
+
+}
+
+int yywrap(void) {	
 	// A funcao yywrap, deve retornar 0 para continuar o parse com outro arquivo
 	return(1);
 }
