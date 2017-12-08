@@ -850,78 +850,78 @@ return(IRONMAN);
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 19 "lexico.l"
+#line 17 "lexico.l"
 return(ESPADINHA);
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 20 "lexico.l"
+#line 18 "lexico.l"
 return(PONTARIA);
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 21 "lexico.l"
+#line 19 "lexico.l"
 return(CURA_ACELERADA);
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 22 "lexico.l"
+#line 20 "lexico.l"
 return(MESTRE_DAS_ARMAS);
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 23 "lexico.l"
+#line 21 "lexico.l"
 return(VELOCIDADE);
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 25 "lexico.l"
+#line 22 "lexico.l"
 return(ARMA_DE_FOTONS);
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 26 "lexico.l"
+#line 23 "lexico.l"
 return(RAIO_DE_ENERGIA);
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 27 "lexico.l"
+#line 24 "lexico.l"
 return(VISAO_TERMAL);
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 28 "lexico.l"
+#line 25 "lexico.l"
 return(MAGNETISMO);
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 29 "lexico.l"
+#line 26 "lexico.l"
 return(INVISIBILIDADE);
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 31 "lexico.l"
+#line 27 "lexico.l"
 {return(INVALIDO);}
 	YY_BREAK
 case 15:
 /* rule 15 can match eol */
 YY_RULE_SETUP
-#line 32 "lexico.l"
+#line 28 "lexico.l"
 { ++linha; return (END_OF_LINE);}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 33 "lexico.l"
+#line 29 "lexico.l"
 return (FIM);
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 34 "lexico.l"
+#line 30 "lexico.l"
 ;
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 35 "lexico.l"
+#line 31 "lexico.l"
 ECHO;
 	YY_BREAK
 #line 928 "lex.yy.c"
@@ -1925,7 +1925,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 35 "lexico.l"
+#line 31 "lexico.l"
 
 
 

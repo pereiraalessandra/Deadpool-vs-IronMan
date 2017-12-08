@@ -119,12 +119,13 @@ comandosIronMan  :
 
 int main(int argc, char **argv)
 {
-	char arquivoEntrada[30];
+	cout<<"aqui";
+	char entrada[15];
 	FILE *arquivo;
 
-	cout << "Informe o arquivo de Entrada: ";
-	cin >> arquivoEntrada;
-	arquivo = fopen(arquivoEntrada,"r");
+	cout << "Arquivo de Entrada: ";
+	cin >> entrada;
+	arquivo = fopen(entrada,"r");
 
 	if (!arquivo) {
 	  cout<<"Arquivo invalido";
