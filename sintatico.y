@@ -109,6 +109,7 @@ comandosIronMan  :
 		{
 			invisibilidade();
 		}
+		|
 		INVALIDO
 		{
 			printf("COMANDO INVALIDO");
