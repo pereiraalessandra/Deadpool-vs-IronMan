@@ -79,7 +79,8 @@ comandosDeadpool :
 		{
 			velocidade();
 		}
-		|INVALIDO
+		|
+		INVALIDO
 		{
 			printf("COMANDO INVALIDO");
 		}
@@ -100,14 +101,14 @@ comandosIronMan  :
 			visaoTermal();
 		}
 		|
-		MAGNETISMO
-		{
-			magnetismo();
-		}
-		|
 		INVISIBILIDADE
 		{
 			invisibilidade();
+		}
+		|
+		MAGNETISMO
+		{
+			magnetismo();
 		}
 		|
 		INVALIDO
@@ -257,7 +258,8 @@ void magnetismo() {
 }
 
 void invisibilidade() {
-		int sucesso = true;//falta tratar uma aleatoriedade
+		int sucesso = rand() % 2;
+		visaoTermalIron = velocidadeDead = false;
 		if (sucesso){
 				raioDeEnergia();
 		}
